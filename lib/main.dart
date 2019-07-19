@@ -1,102 +1,99 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Cupertino导航组件集',
-      theme: ThemeData.light(), //浅色主题
-      home: MyPage(),
+void main() => runApp(
+      new MaterialApp(
+        title: 'Container布局容器示例',
+        home: new LayoutDemo(),
+      ),
     );
-  }
-}
 
-class MyPage extends StatefulWidget {
-  @override
-  _MyPageState createState() => _MyPageState();
-}
-
-class _MyPageState extends State<MyPage> {
+class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //最外层导航选项卡
-    return CupertinoTabScaffold(
-      //底部选项卡
-      tabBar: CupertinoTabBar(
-        backgroundColor: CupertinoColors.lightBackgroundGray, //选项卡背景色
-        items: [
-          //选项卡项 包含图标及文字
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
-            title: Text('主页'),
+    //返回一个Container对象
+    Widget container = new Container(
+      //添加装饰效果
+      decoration: new BoxDecoration(
+        color: Colors.grey,
+      ),
+      //子元素指定为一个垂直水平嵌套布局的组件
+      child: new Column(
+        children: <Widget>[
+          new Row(
+            children: <Widget>[
+              //使用Expanded防止内容溢出
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  //添加边框样式
+                  decoration: new BoxDecoration(
+                    //上下左右边框设置为宽度10.0 颜色为蓝灰色
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    //上下左右边框弧度设置为8.0
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  //上下左右增加边距
+                  margin: const EdgeInsets.all(4.0),
+                  //添加图片
+                  child: new Image.asset('images/1.jpeg'),
+                ),
+              ),
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: new BoxDecoration(
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: new Image.asset('images/2.jpeg'),
+                ),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.conversation_bubble),
-            title: Text('聊天'),
+          new Row(
+            children: <Widget>[
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: new BoxDecoration(
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: new Image.asset('images/3.jpeg'),
+                ),
+              ),
+              new Expanded(
+                child: new Container(
+                  width: 150.0,
+                  height: 150.0,
+                  decoration: new BoxDecoration(
+                    border: new Border.all(width: 10.0, color: Colors.blueGrey),
+                    borderRadius:
+                        const BorderRadius.all(const Radius.circular(8.0)),
+                  ),
+                  margin: const EdgeInsets.all(4.0),
+                  child: new Image.asset('images/2.jpeg'),
+                ),
+              ),
+            ],
           ),
         ],
       ),
-      tabBuilder: (context, index) {
-        //选项卡绑定的视图
-        return CupertinoTabView(
-          builder: (context) {
-            switch (index) {
-              case 0:
-                return HomePage();
-                break;
-              case 1:
-                return ChatPage();
-                break;
-              default:
-                return Container();
-            }
-          },
-        );
-      },
     );
-  }
-}
 
-//主页
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      //基本布局结构，包含内容和导航栏
-      navigationBar: CupertinoNavigationBar(
-        //导航栏 只包含中部标题部分
-        middle: Text("主页"),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Container布局容器示例'),
       ),
-      child: Center(
-        child: Text(
-          '主页',
-          style: Theme.of(context).textTheme.button,
-        ),
-      ),
-    );
-  }
-}
-
-//聊天页面
-class ChatPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        //导航栏 包含左中右三部分
-        middle: Text("聊天面板"),//中间标题
-        trailing: Icon(CupertinoIcons.add),//右侧按钮
-        leading: Icon(CupertinoIcons.back),//左侧按钮
-      ),
-      child: Center(
-        child: Text(
-          '聊天面板',
-          style: Theme.of(context).textTheme.button,
-        ),
-      ),
+      body: container,
     );
   }
 }
