@@ -1,38 +1,45 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(new MyApp(
-  //使用generate方法产生500条数据
-  items: new List<String>.generate(5, (i) => "Item $i"),
-));
+void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
 
-  //列表数据集
-  final List<String> items;
-
-  MyApp({Key key, @required this.items}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final title = "长列表示例";
+    final title = "网格列表示例";
 
-    return MaterialApp(
+    return new MaterialApp(
       title: title,
       home: new Scaffold(
         appBar: new AppBar(
           title: new Text(title),
         ),
-        //使用ListView.builder来构造列表项
-        body: new ListView.builder(
-          //列表长度
-          itemCount: items.length,
-          //列表项构造器
-          itemBuilder: (context,index) {
-            return new ListTile(
-              leading: new Icon(Icons.phone),
-              title: new Text('${items[index]}'),
-            );
-          },
+        //使用GridView.count构建网格
+        body: new GridView.count(
+          primary: false,
+          //四周增加一定的空隙
+          padding: const EdgeInsets.all(20.0),
+          crossAxisSpacing: 30.0,
+          //一行上放三列数据
+          crossAxisCount: 3,
+          //数据项 五行三列
+          children: <Widget>[
+            const Text('第一行第一列'),
+            const Text('第一行第二列'),
+            const Text('第一行第三列'),
+            const Text('第二行第一列'),
+            const Text('第二行第二列'),
+            const Text('第二行第三列'),
+            const Text('第三行第一列'),
+            const Text('第三行第二列'),
+            const Text('第三行第三列'),
+            const Text('第二行第三列'),
+            const Text('第三行第一列'),
+            const Text('第三行第二列'),
+            const Text('第三行第三列'),
+            const Text('第三行第三列'),
+            const Text('第三行第三列'),
+          ],
         ),
       ),
     );
