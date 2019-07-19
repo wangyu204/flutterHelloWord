@@ -1,37 +1,24 @@
 import 'package:flutter/material.dart';
 
-
-
 void main() {
   runApp(
       new MaterialApp(
-        title: 'Container demo',
-        home: new ContainerDemo(),
+        title: 'Image demo',
+        home: new ImageDemo(),
       )
   );
 }
 
-class ContainerDemo extends StatelessWidget {
+class ImageDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return new Center(
-
-      child: new Container(
-        width: 200.0,
-        height: 200.0,
-        decoration: new BoxDecoration(
-            color: Colors.white,
-            border: new Border.all(
-              color: Colors.green,
-              width: 8.0,
-            ),
-            borderRadius: const BorderRadius.all(const  Radius.circular(48.0))
-        ),
-        child: new Text(
-          'Flutter',
-          textAlign: TextAlign.center,
-        ),
+      //添加网络图片
+      child: new Image.network(
+        //图片url
+        'https://pic4.zhimg.com/v2-3be05963f5f3753a8cb75b6692154d4a_1200x500.jpg',
+        //填充模式
+        fit: BoxFit.fitWidth,
       ),
     );
   }
