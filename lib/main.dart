@@ -1,60 +1,45 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: MyHomePage(),
-      ),
-    );
-  }
+void main() {
+  runApp(new DefaultTabControllerSample());
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+class DefaultTabControllerSample extends StatelessWidget {
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 1;//当前选中项的索引
-  final _widgetOptions = [
-    Text('Index 0: 信息'),
-    Text('Index 1: 通讯录'),
-    Text('Index 2: 发现'),
+  //选项卡数据
+  final List<Tab> myTabs = <Tab>[
+    Tab(text: '选项卡一'),
+    Tab(text: '选项卡二'),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('BottomNavigationBar示例'),
-      ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),//居中显示某一个文本
-      ),
-      //底部导航按钮 包含图标及文本
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.chat), title: Text('信息')),
-          BottomNavigationBarItem(icon: Icon(Icons.contacts), title: Text('通讯录')),
-          BottomNavigationBarItem(icon: Icon(Icons.account_circle), title: Text('发现')),
-        ],
-        currentIndex: _selectedIndex,//当前选中项的索引
-        fixedColor: Colors.deepPurple,//选项中项的颜色
-        onTap: _onItemTapped,//选择按下处理
+    return new MaterialApp(
+      //用来组装TabBar及TabBarView
+      home: DefaultTabController(
+        length: myTabs.length,
+        child: Scaffold(
+          appBar: AppBar(
+            //添加导航栏
+            bottom: TabBar(
+              tabs: myTabs,
+            ),
+          ),
+          //添加导航视图
+          body: TabBarView(
+            children: myTabs.map((Tab tab) {
+              return Center(child: Text(tab.text));
+            }).toList(),
+          ),
+        ),
       ),
     );
   }
-
-  //选择按下处理 设置当前索引为index值
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 }
+
+
+
+
+
+
