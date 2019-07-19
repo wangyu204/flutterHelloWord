@@ -6,35 +6,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'AlertDialog组件示例',
+      title: 'Welcome to Flutter',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('AlertDialog组件示例'),
+          title: Text('SnackBar示例'),
         ),
         body: Center(
-          child: AlertDialog(
-            title: Text('提示'), //对话框标题
-            content: SingleChildScrollView(
-              //对话框内容部分
-              child: ListBody(
-                children: <Widget>[
-                  Text('是否要删除?'),
-                  Text('一旦删除数据不可恢复！'),
-                ],
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('确定'),
-                onPressed: () {},
-              ),
-              FlatButton(
-                child: Text('取消'),
-                onPressed: () {},
-              ),
-            ],
+          child: Text(
+            'SnackBar示例',
+            style: TextStyle(fontSize: 28.0),
           ),
         ),
+        floatingActionButton: new Builder(builder: (BuildContext context) {
+          return new FloatingActionButton(
+            child: const Icon(Icons.add),
+            onPressed: () {
+              //点击回调事件 弹出一句提示语句
+              Scaffold.of(context).showSnackBar(new SnackBar(
+                content: new Text("显示SnackBar"),
+              ));
+            },
+            shape: new CircleBorder(),
+          );
+        }),
+        floatingActionButtonLocation:
+        FloatingActionButtonLocation.endFloat, //居中放置 位置可以设置成左中右
       ),
     );
   }
