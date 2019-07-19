@@ -1,32 +1,25 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-  new MaterialApp(
-    title: '图标按钮组件示例',
-    home: new LayoutDemo(),
-  ),
-);
+void main() => runApp(new MyApp());
 
-class LayoutDemo extends StatelessWidget {
-
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('图标按钮组件示例'),
-      ),
-      body: new Center(
-        child: new IconButton(
-          icon: Icon(Icons.volume_up,size: 48.0,),
-          tooltip: '按下操作',
-          onPressed: () {
-            print('按下操作');
-          },
+    return new MaterialApp(
+      title: 'RaisedButton示例',
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('RaisedButton组件示例'),
+        ),
+        body: new Center(
+          child: new RaisedButton(
+            onPressed: () {
+              //按下事件处理
+            },
+            child: new Text('RaisedButton组件'),
+          ),
         ),
       ),
     );
-
   }
 }
