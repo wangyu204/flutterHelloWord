@@ -1,93 +1,37 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(new LoginPage());
-
-class LoginPage extends StatefulWidget {
-  @override
-  _LoginPageState createState() => new _LoginPageState();
+void main() {
+  runApp(new MyApp());
 }
 
-class _LoginPageState extends State<LoginPage> {
-
-  //全局Key用来获取Form表单组件
-  GlobalKey<FormState> loginKey = new GlobalKey<FormState>();
-
-  //用户名
-  String userName;
-
-  //密码
-  String password;
-
-  void login() {
-    //读取当前的Form状态
-    var loginForm = loginKey.currentState;
-
-    //验证Form表单
-    if (loginForm.validate()) {
-      loginForm.save();
-      print('userName:' + userName + ' password:' + password);
-    }
-  }
-
+class MyApp extends StatelessWidget {
+  //这是整个应用的主组件
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Form表单示例',
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Form表单示例'),
-        ),
-        body: new Column(
-          children: <Widget>[
-            new Container(
-              padding: const EdgeInsets.all(16.0),
-              child: new Form(
-                key: loginKey,
-                child: new Column(
-                  children: <Widget>[
-                    new TextFormField(
+      home: new MyHomePage(),
+      title: 'MaterialApp示例',
+    );
+  }
+}
 
-                      decoration: new InputDecoration(
-                        labelText: '请输入用户名',
-                      ),
-                      onSaved: (value) {
-                        userName = value;
-                      },
-                      onFieldSubmitted: (value){
+//这是一个可改变的Widget
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => new _MyHomePageState();
+}
 
-                      },
-                    ),
-                    new TextFormField(
-                      decoration: new InputDecoration(
-                        labelText: '请输入密码',
-                      ),
-                      obscureText: true,
-                      //验证表单方法
-                      validator: (value) {
-                        return value.length < 6 ? "密码长度不够6位" : null;
-                      },
-                      onSaved: (value) {
-                        password = value;
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            new SizedBox(
-              width: 340.0,
-              height: 42.0,
-              child: new RaisedButton(
-                onPressed: login,
-                child: new Text(
-                  '登录',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                  ),
-                ),
-              ),
-            ),
-          ],
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: Text('MaterialApp示例'),
+      ),
+      body: Center(
+        child: Text(
+          '主页',
+          style: TextStyle(fontSize: 28.0),
         ),
       ),
     );
