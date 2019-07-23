@@ -15,13 +15,15 @@ class MyApp extends StatelessWidget {
           children: <Widget>[
             new RaisedButton(
               onPressed: () {},
-              color: Colors.redAccent,
-              child: new Text('red'),
-            ),
-            new RaisedButton(
-              onPressed: () {},
               color: Colors.yellowAccent,
               child: new Text('yellow'),
+            ),
+            Expanded(
+              child: new RaisedButton(
+                onPressed: () {},
+                color: Colors.redAccent,
+                child: new Text('red'),
+              ),
             ),
             new RaisedButton(
               onPressed: () {},
