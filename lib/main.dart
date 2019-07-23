@@ -6,22 +6,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'flutter',
+      title: 'flutter demo',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('title'),
+        appBar: new AppBar(
+          title: new Text('title'),
         ),
-        body: Center(
-          child: Container(
-            child: new Image.network(
-              'https://jspang.com/images/redux001.jpg',
-              fit: BoxFit.scaleDown,
-              repeat: ImageRepeat.repeat,
+        body: new ListView(
+          children: <Widget>[
+            new ListTile(
+              leading: new Icon(Icons.access_alarm),
+              title: new Text('alarm'),
             ),
-            width: 300.0,
-            height: 200.0,
-            color: Colors.lightBlue,
-          ),
+            new ListTile(
+              leading: new Icon(Icons.access_alarm),
+              title: new Text('alarm'),
+            ),
+            new ListTile(
+              leading: new Icon(Icons.access_alarm),
+              title: new Text('alarm'),
+            ),
+            new ListTile(
+              leading: new Icon(Icons.access_alarm),
+              title: new Text('alarm'),
+            ),
+            new Image.network(
+                'http://image.317hu.com/cc55b4f6-23f3-4a4d-9eee-7208893b4685')
+          ],
         ),
       ),
     );
