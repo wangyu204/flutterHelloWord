@@ -11,29 +11,44 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text('title'),
         ),
-        body: new ListView(
-          children: <Widget>[
-            new ListTile(
-              leading: new Icon(Icons.access_alarm),
-              title: new Text('alarm'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.access_alarm),
-              title: new Text('alarm'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.access_alarm),
-              title: new Text('alarm'),
-            ),
-            new ListTile(
-              leading: new Icon(Icons.access_alarm),
-              title: new Text('alarm'),
-            ),
-            new Image.network(
-                'http://image.317hu.com/cc55b4f6-23f3-4a4d-9eee-7208893b4685')
-          ],
+        body: Center(
+          child: Container(
+            height: 200.0,
+            child: new MyList(),
+          ),
         ),
       ),
+    );
+  }
+}
+
+class MyList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        new Container(
+          width: 180.0,
+          color: Colors.lightBlue,
+        ),
+        new Container(
+          width: 180.0,
+          color: Colors.red,
+        ),
+        new Container(
+          width: 180.0,
+          color: Colors.yellow,
+        ),
+        new Container(
+          width: 180.0,
+          color: Colors.green,
+        ),
+        new Container(
+          width: 180.0,
+          color: Colors.blue,
+        ),
+      ],
     );
   }
 }
