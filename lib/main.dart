@@ -1,38 +1,25 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-  new MaterialApp(
-    title: '水平布局示例',
-    home: new LayoutDemo(),
-  ),
-);
+void main() => runApp(MyApp());
 
-class LayoutDemo extends StatelessWidget {
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('水平布局示例'),
-      ),
-      body: new Row(
-        children: <Widget>[
-          new Expanded(
-            child: new Text('左侧文本', textAlign: TextAlign.center),
+    return MaterialApp(
+      title: 'flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('title'),
+        ),
+        body: Center(
+          child: Text(
+            'hello2321erqreqwrwerqerqwrerqrqrqrqrdsfafafafadfasf23rsrer121',
+            textAlign: TextAlign.left,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
-          new Expanded(
-            child: new Text('中间文本', textAlign: TextAlign.center),
-          ),
-          new Expanded(
-            child: new FittedBox(
-              fit: BoxFit.contain,
-              child: const FlutterLogo(),
-            ),
-          ),
-        ],
+        ),
       ),
     );
-
   }
 }
