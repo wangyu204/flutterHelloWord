@@ -13,20 +13,14 @@ class MyApp extends StatelessWidget {
         ),
         body: Center(
           child: Container(
-            child: new Text(
-              'hello1',
-              style: TextStyle(fontSize: 40.0),
+            child: new Image.network(
+              'https://jspang.com/images/redux001.jpg',
+              fit: BoxFit.scaleDown,
+              repeat: ImageRepeat.repeat,
             ),
-            alignment: Alignment.topLeft,
-            width: 400.0,
-            height: 400.0,
-            padding: const EdgeInsets.fromLTRB(10.0, 100.0, 0, 0),
-            margin: const EdgeInsets.all(10.0),
-            decoration: new BoxDecoration(
-              gradient: const LinearGradient(
-                  colors: [Colors.lightBlue, Colors.green, Colors.purple]),
-              border: Border.all(width: 5.0, color: Colors.red),
-            ),
+            width: 300.0,
+            height: 200.0,
+            color: Colors.lightBlue,
           ),
         ),
       ),
