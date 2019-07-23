@@ -9,28 +9,20 @@ class MyApp extends StatelessWidget {
       title: 'flutter demo',
       home: Scaffold(
         appBar: new AppBar(
-          title: new Text('title'),
+          title: new Text('垂直布局'),
         ),
-        body: new Row(
-          children: <Widget>[
-            new RaisedButton(
-              onPressed: () {},
-              color: Colors.yellowAccent,
-              child: new Text('yellow'),
-            ),
-            Expanded(
-              child: new RaisedButton(
-                onPressed: () {},
-                color: Colors.redAccent,
-                child: new Text('red'),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text('I am top'),
+              Expanded(
+                child: Text('I am bodydfasfasfasfasfasfsa'),
               ),
-            ),
-            new RaisedButton(
-              onPressed: () {},
-              color: Colors.lightBlue,
-              child: new Text('lightBlue'),
-            ),
-          ],
+              Text('I am bottom'),
+            ],
+          ),
         ),
       ),
     );
