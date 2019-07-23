@@ -12,16 +12,20 @@ class MyApp extends StatelessWidget {
           title: Text('title'),
         ),
         body: Center(
-          child: Text(
-            'hello2321erqreqwrwerqerqwrerqrqrqrqrdsfafafafadfasf23rsrer121',
-            textAlign: TextAlign.left,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 25.0,
-              color: Color.fromARGB(255, 255, 125, 125),
-              decoration: TextDecoration.underline,
-              decorationStyle: TextDecorationStyle.dashed,
+          child: Container(
+            child: new Text(
+              'hello1',
+              style: TextStyle(fontSize: 40.0),
+            ),
+            alignment: Alignment.topLeft,
+            width: 400.0,
+            height: 400.0,
+            padding: const EdgeInsets.fromLTRB(10.0, 100.0, 0, 0),
+            margin: const EdgeInsets.all(10.0),
+            decoration: new BoxDecoration(
+              gradient: const LinearGradient(
+                  colors: [Colors.lightBlue, Colors.green, Colors.purple]),
+              border: Border.all(width: 5.0, color: Colors.red),
             ),
           ),
         ),
