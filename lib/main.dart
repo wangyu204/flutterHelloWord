@@ -1,67 +1,42 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MaterialApp(title: '父子关系导航栏', home: new FirstPage()));
+}
 
-class MyApp extends StatelessWidget {
+class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var card = new Card(
-      child: Column(
-        children: <Widget>[
-          ListTile(
-            title: Text(
-              '浙江省杭州市滨江区风雅钱塘',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            subtitle: Text('wangyu:13700000001'),
-            leading: Icon(
-              Icons.account_box,
-              color: Colors.lightBlue,
-            ),
-          ),
-          new Divider(),
-          ListTile(
-            title: Text(
-              '北京杭州市滨江区风雅钱塘',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            subtitle: Text('wangyu:13700000001'),
-            leading: Icon(
-              Icons.account_box,
-              color: Colors.lightBlue,
-            ),
-          ),
-          new Divider(),
-          ListTile(
-            title: Text(
-              '上海省杭州市滨江区风雅钱塘',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-            subtitle: Text('wangyu:13700000001'),
-            leading: Icon(
-              Icons.account_box,
-              color: Colors.lightBlue,
-            ),
-          ),
-          new Divider(),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('父子导航'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => new SecondPage()));
+          },
+          child: Text('查看商品详情'),
+        ),
       ),
     );
+  }
+}
 
-    return MaterialApp(
-      title: 'flutter demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('垂直布局2'),
-        ),
-        body: Center(
-          child: card,
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('wangyu商品详情页面'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('返回'),
         ),
       ),
     );
