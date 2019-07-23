@@ -17,6 +17,12 @@ class MyApp extends StatelessWidget {
             textAlign: TextAlign.left,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 25.0,
+              color: Color.fromARGB(255, 255, 125, 125),
+              decoration: TextDecoration.underline,
+              decorationStyle: TextDecorationStyle.dashed,
+            ),
           ),
         ),
       ),
