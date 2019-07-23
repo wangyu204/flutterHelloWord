@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() =>
-    runApp(MyApp(items: new List<String>.generate(1000, (i) => "Item $i")));
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final List<String> items;
-
-  MyApp({Key key, @required this.items}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,11 +11,23 @@ class MyApp extends StatelessWidget {
         appBar: new AppBar(
           title: new Text('title'),
         ),
-        body: new ListView.builder(
-            itemCount: items.length,
-            itemBuilder: (context, index) {
-              return new ListTile(title: new Text('${items[index]}'));
-            }),
+        body: GridView.count(
+          padding: const EdgeInsets.all(20.0),
+          crossAxisCount: 3,
+          crossAxisSpacing: 10.0,
+          children: <Widget>[
+            const Text('hello wangyu'),
+            const Text('hello wangyu1'),
+            const Text('hello wangyu2'),
+            const Text('hello wangyu3'),
+            const Text('hello wangyu4'),
+            const Text('hello wangyu5'),
+            const Text('hello wangyu6'),
+            const Text('hello wangyu7'),
+            const Text('hello wangyu8'),
+            const Text('hello wangyu9'),
+          ],
+        ),
       ),
     );
   }
