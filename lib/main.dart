@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'bottom_appBar_demo.dart';
+import 'pages.dart';
 
 void main() => runApp(new MyApp());
 
@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
         title: '不规则',
         //自定义主题样本
         theme: ThemeData(
-          primarySwatch: Colors.lightBlue,
+          primarySwatch: Colors.blue,
         ),
-        home: BottomAppBarDemo());
+        home: FirstPage());
   }
 }
