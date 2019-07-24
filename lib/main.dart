@@ -1,44 +1,14 @@
 import 'package:flutter/material.dart';
+import 'bottom_navigation_widget.dart';
 
-void main() {
-  runApp(MaterialApp(title: '父子关系导航栏', home: new FirstPage()));
-}
+void main() => runApp(new MyApp());
 
-class FirstPage extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('父子导航'),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => new SecondPage()));
-          },
-          child: Text('查看商品详情'),
-        ),
-      ),
-    );
-  }
-}
-
-class SecondPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('wangyu商品详情页面'),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('返回'),
-        ),
-      ),
-    );
+    return MaterialApp(
+        title: '底部menubar',
+        theme: ThemeData.light(),
+        home: BottomNavigationWidget());
   }
 }
