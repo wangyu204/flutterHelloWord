@@ -14,10 +14,15 @@ class CustomerRouter extends PageRouteBuilder {
                 Animation<double> animation1,
                 Animation<double> animation2,
                 Widget child) {
-              return FadeTransition(
-                opacity: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+              //旋转+缩放效果
+              return RotationTransition(
+                turns: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
                     parent: animation1, curve: Curves.fastOutSlowIn)),
-                child: child,
+                child: ScaleTransition(
+                  scale: Tween(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+                      parent: animation1, curve: Curves.fastOutSlowIn)),
+                  child: child,
+                ),
               );
             });
 }
