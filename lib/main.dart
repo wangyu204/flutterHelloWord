@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'custom_clipper.dart';
+import 'splash_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,11 +9,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'flutter demo',
-      debugShowCheckedModeBanner: false,
+//      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: SplashScreen(),
     );
   }
 }
