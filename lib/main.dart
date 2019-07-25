@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'right_back_demo.dart';
+import 'tool_tips_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RightBackDemo(),
+      home: ToolTipsDemo(),
     );
   }
 }
