@@ -70,14 +70,15 @@ class searchBarDelegate extends SearchDelegate<String> {
         itemBuilder: (context, index) => ListTile(
               title: RichText(
                   text: TextSpan(
-                      text: suggestionList[index].substring(0, query.length),
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                      children: [
-                    TextSpan(
-                        text: suggestionList[index].substring(query.length),
-                        style: TextStyle(color: Colors.grey))
-                  ])),
+                text: suggestionList[index].substring(0, query.length),
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                children: [
+                  TextSpan(
+                      text: suggestionList[index].substring(query.length),
+                      style: TextStyle(color: Colors.grey)),
+                ],
+              )),
             ));
   }
 }
