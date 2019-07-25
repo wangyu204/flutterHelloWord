@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'tool_tips_demo.dart';
+import 'draggable_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ToolTipsDemo(),
+      home: DraggableDemo(),
     );
   }
 }
