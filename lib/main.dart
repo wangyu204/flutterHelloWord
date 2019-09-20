@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'draggable_demo.dart';
+import 'models/index.dart';
 
-void main() => runApp(MyApp());
+//void main() => runApp(MyApp());
+
+void main() {
+  var u = User.fromJson({"name": "Jack", "age": 16, "+1": 20});
+  print(u.loved); // 20
+}
 
 class MyApp extends StatelessWidget {
   @override
