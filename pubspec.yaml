@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   dio: ^2.0.7
   json_annotation: ^2.0.0
+  binding_helper: ^0.0.2
 
 dev_dependencies:
   flutter_test:
